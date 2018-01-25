@@ -7,6 +7,8 @@ SET v = (SELECT COUNT(*) FROM `migrations` WHERE `id`='20171208030510');
 IF v=0 THEN
 INSERT INTO `migrations` VALUES ('20171208030510');
 -- Add your query below.
+
+
 -- After Broodlord pack
 -- Delete the Wyrmguard as he does not belong here.
 delete from creature where guid = "1177488";
@@ -133,6 +135,11 @@ update creature set position_x = '-7447.491699', position_y = '-943.708008', pos
 update creature set position_x = '-7405.420898', position_y = '-963.818115', position_z = '464.949005', orientation = '2.334169', MovementType = 0, spawndist = 0 where guid = 84635;
 update creature set position_x = '-7395.647461', position_y = '-960.285645', position_z = '464.962311', orientation = '1.881304', MovementType = 0, spawndist = 0 where guid = 84634;
 update creature set position_x = '-7388.353516', position_y = '-956.313293', position_z = '464.964539', orientation = '2.229512', MovementType = 0, spawndist = 0 where guid = 84628;
+
+UPDATE `creature_groups` SET `leaderGUID`=1177494 WHERE `leaderGUID`=1177488;
+UPDATE `creature` SET `spawndist`=0, `MovementType`=2 WHERE `guid` IN (84558, 84625, 84840, 1177486, 1177487);
+
+
 -- End of migration.
 END IF;
 END??
